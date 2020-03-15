@@ -1,2 +1,2 @@
 # Block-explorer
-NibbleClassic Block explorer
+Crumbs Block explorer
