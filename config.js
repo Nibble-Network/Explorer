@@ -7,16 +7,16 @@ var symbol = 'XCR'; 			// enter the coin's ticker
 var refreshDelay = 90000;
 
 // pools stats by MainCoins
-//var networkStat = {
-// "XCR": [
+var networkStat = {
+"XCR": [
 //	["cnpool.cc", "https://cnpool.cc/api/nbx/"],
 // 	["nibbleclassic.my-mining-pool.de", "https://apinibbleclassic.my-mining-pool.de/"]
-// ]
-//};
+ ]
+};
 
-//var networkStat2 = {
-// "XCR": [
+var networkStat2 = {
+ "XCR": [
 //	["webnbx.semipool.com", "https://webnbx.semipool.com/api"]
-// ]
-//};
+ ]
+};
 
