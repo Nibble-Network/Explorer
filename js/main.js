@@ -99,6 +99,11 @@ function getReadableCoins(coins, digits, withoutSymbol){
     return localizeNumber(amount) + (withoutSymbol ? '' : (' ' + symbol));
 }
 
+function getReadableCoins2(coins, digits, withoutSymbol) {
+  var amount = (parseInt(coins || 0) / coinUnits).toFixed(digits);
+  return localizeNumber(amount) + (withoutSymbol ? '' : (' ' + symbol));
+}
+
 function formatDate(time){
     if (!time) return '';
     return renderDate(new Date(parseInt(time) * 1000));
