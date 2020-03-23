@@ -176,6 +176,7 @@
             cache: 'false',
             success: function(data) {
                 last_block_hash = data.result.block_header.hash;
+                last_block_deposts = data.result.block_header.deposits;
                 $.ajax({
                     url: api + '/json_rpc',
                     method: "POST",
@@ -191,6 +192,7 @@
                     cache: 'false',
                     success: function(data) {
                     block = data.result.block;
+                        circulating_supply = block.alreadyGeneratedCoins - last_block_deposts;
                         updateText('totalCoins', getReadableCoins(block.alreadyGeneratedCoins,5));
                         updateText('emissionPercent', ((block.alreadyGeneratedCoins / totalSupply)*100 ).toFixed(2));
                         updateText('currentReward', getReadableCoins(block.baseReward,5));
