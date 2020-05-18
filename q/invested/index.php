@@ -5,6 +5,6 @@ $config = (require '../../config.php');
 $info = fetch_getinfo($config['api']);
 $depositsRaw = $info['full_deposit_amount'];
 
-$supply = number_format($depositsRaw / $config['coinUnits'], 0, ".", "");
+$supply = number_format($depositsRaw / $config['coinUnits'], 6, ".", "");
 
 print_r($supply);
