@@ -8,15 +8,13 @@ var refreshDelay = 90000;
 
 // pools stats by MainCoins
 var networkStat = {
-"NBXC": [
-//	["cnpool.cc", "https://cnpool.cc/api/nbx/"],
-// 	["nibbleclassic.my-mining-pool.de", "https://apinibbleclassic.my-mining-pool.de/"]
+"nbxc": [
+        ["superblockchain.con-ip.com\/nbxc","https://superblockchain.con-ip.com:8151"]
  ]
 };
 
 var networkStat2 = {
- "NBXC": [
-//	["webnbx.semipool.com", "https://webnbx.semipool.com/api"]
+ "nbxc": [
  ]
 };
 
