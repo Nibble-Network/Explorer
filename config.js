@@ -9,7 +9,8 @@ var refreshDelay = 90000;
 // pools stats by MainCoins
 var networkStat = {
 "nbxc": [
-        ["superblockchain.con-ip.com\/nbxc","https://superblockchain.con-ip.com:8151"]
+        ["superblockchain.con-ip.com\/nbxc","https://superblockchain.con-ip.com:8151"],
+        ["fastpool.xyz/nbx\/nbxc","https://fastpool.xyz:10034"]
  ]
 };
 
