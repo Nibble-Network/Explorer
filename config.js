@@ -10,7 +10,7 @@ var refreshDelay = 90000;
 var networkStat = {
 "nbxc": [
         ["superblockchain.con-ip.com\/nbxc","https://superblockchain.con-ip.com:8151"],
-        ["fastpool.xyz/nbx\/nbxc","https://fastpool.xyz:10034"]
+        ["fastpool.xyz\/nbx","https://fastpool.xyz:10034"]
  ]
 };
 
