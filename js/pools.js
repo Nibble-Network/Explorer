@@ -5,7 +5,7 @@ var customHash = function(str) {
     // custom hash function makes the potential color space tighter for the
     // hasher, generating more distinct colors. Since so many pools have close
     // names, their hashes were generating similar colors
-    return ColorHash.BKDRHash(str) / 8;
+    return ColorHash.BKDRHash(str) / 8.001;
 };
 
 var colorHash = new ColorHash({hash: customHash, lightness: [0.55, 0.66, 0.77] });
@@ -14,7 +14,10 @@ var poolStats = [];
 var difficulties = [];
 var poolsChart = null;
 var totalHashrate = 0;
+var totalHashrateSolo = 0;
 var totalMiners = 0;
+var totalMinersSolo = 0;
+var sumknownMiners = 0;
 var lastReward = 0;
 var avgDiff = 0;
 
@@ -45,8 +48,8 @@ var renderPoolRow = function(host, name, data, d) {
     pools_row.push('<tr>');
     pools_row.push('<td id=host-'+name+'><a target=blank href=http://'+host+'>'+name+'</a></td>');
     pools_row.push('<td class="height" id=height-'+name+'>'+localizeNumber(data.network.height)+'</td>');
-    pools_row.push('<td id=hashrate-'+name+'>'+localizeNumber(data.pool.hashrate)+' H/s</td>');
-    pools_row.push('<td id=miners-'+name+'>'+localizeNumber(data.pool.miners)+'</td>');
+    pools_row.push('<td id=hashrate-'+name+'>'+localizeNumber(data.pool.hashrate)+' / '+localizeNumber(data.pool.hashrateSolo)+' H/s</td>');
+    pools_row.push('<td id=miners-'+name+'>'+localizeNumber(data.pool.miners)+' / '+localizeNumber(data.pool.minersSolo)+ '</td>');
     pools_row.push('<td id=totalFee-'+name+'>'+calculateTotalFee(data)+'%</td>');
     //pools_row.push('<td id=totalFee-'+name+'>'+data.config.donation+'%</td>');
     pools_row.push('<td id=minPayout-'+name+'>'+getReadableCoins(data.config.minPaymentThreshold,2)+'</td>');
@@ -171,8 +174,13 @@ NETWORK_STAT_MAP.forEach(function(url, host, map) {
         totalHashrate += parseInt(data.pool.hashrate);
         totalMiners += parseInt(data.pool.miners);
 
-        updateText('totalPoolsHashrate', getReadableHashRateString(totalHashrate) + '/sec');
-        updateText('total_miners', localizeNumber(totalMiners));
+	totalHashrateSolo += parseInt(data.pool.hashrateSolo);
+        totalMinersSolo += parseInt(data.pool.minersSolo);
+
+        sumknownMiners+= (parseInt(data.pool.miners) + parseInt(data.pool.minersSolo));    
+	    
+        updateText('totalPoolsHashrate', getReadableHashRateString(totalHashrate + totalHashrateSolo) + '/sec');
+        updateText('total_miners', localizeNumber(sumknownMiners));
 
         poolStats.push([poolName, parseInt(data.pool.hashrate), colorHash.hex(poolName)]);
 
@@ -225,6 +233,10 @@ setInterval(function(){
 
     totalHashrate = 0;
     totalMiners = 0;
+    totalHashrateSolo = 0;
+    totalMiners = 0;
+    totalMinersSolo = 0;
+    sumknownMiners = 0;
     poolStats = [];
 
     NETWORK_STAT_MAP.forEach(function(url, host, map) {
@@ -245,13 +257,18 @@ setInterval(function(){
             totalHashrate += parseInt(data.pool.hashrate);
             totalMiners += parseInt(data.pool.miners);
 
+	    totalHashrateSolo += parseInt(data.pool.hashrateSolo);
+            totalMinersSolo += parseInt(data.pool.minersSolo);
+
+            sumknownMiners+= (parseInt(data.pool.miners) + parseInt(data.pool.minersSolo));
+
             updateText('height-'+poolName, localizeNumber(data.network.height));
             updateText('hashrate-'+poolName, localizeNumber(data.pool.hashrate)+' H/s');
             updateText('miners-'+poolName, localizeNumber(data.pool.miners));
             updateText('lastFound-'+poolName, datestring);
             updateText('ago-'+poolName, agostring);
-            updateText('totalPoolsHashrate', getReadableHashRateString(totalHashrate) + '/sec');
-            updateText('total_miners', localizeNumber(totalMiners));
+            updateText('totalPoolsHashrate', getReadableHashRateString(totalHashrate + totalHashrateSolo) + '/sec');
+            updateText('total_miners', localizeNumber(sumknownMiners));
             updateText('networkHashrate', getReadableHashRateString(lastStats.difficulty / blockTargetInterval) + '/sec');
             updateText('networkDifficulty', getReadableDifficultyString(lastStats.difficulty, 0).toString());
 
