@@ -11,10 +11,10 @@ var networkStat = {
 "nbxc": [
         ["superblockchain.con-ip.com\/nbxc","https://superblockchain.con-ip.com:8151"],
         ["fastpool.xyz\/nbxc","https://fastpool.xyz:10034"],
-        ["Let'sHash.It!\/nbxc","https://letshash.online:15024"],
-        ["GNTL pool\/nbxc","https://nbxc.pool.gntl.co.uk/api/pool/"],
-        ["nibl.ms-pool.net\/nbxc","https://nibl.ms-pool.net.ua:8117"],
-        ["Pool-pay.com!\/nbxc","http://nbxc.pool-pay.com:8767"]
+        ["letshash.it","https://letshash.online:15024"],
+        ["nbxc.pool.gntl.co.uk","https://nbxc.pool.gntl.co.uk/api/pool/"],
+        ["nibl.ms-pool.net.ua","http://nibl.ms-pool.net.ua:8117"],
+        ["nbxc.pool-pay.com","http://nbxc.pool-pay.com:8767"]
  ]
 };
 
