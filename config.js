@@ -14,7 +14,8 @@ var networkStat = {
         ["letshash.it","https://letshash.online:15024"],
         ["nbxc.pool.gntl.co.uk","https://nbxc.pool.gntl.co.uk/api/pool/"],
         ["nibl.ms-pool.net.ua","http://nibl.ms-pool.net.ua:8117"],
-        ["nbxc.pool-pay.com","http://nbxc.pool-pay.com:8767"]
+        ["nbxc.pool-pay.com","http://nbxc.pool-pay.com:8767"],
+        ["pool.walemo.com","http://nbxc.bhdscan.com:32316"]
  ]
 };
 
