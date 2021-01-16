@@ -9,18 +9,18 @@ var refreshDelay = 90000;
 // pools stats by MainCoins
 var networkStat = {
 "nbxc": [
-        ["superblockchain.con-ip.com\/nbxc","https://superblockchain.con-ip.com:8151"],
-        ["fastpool.xyz\/nbx","https://fastpool.xyz:10034"],
-        ["letshash.it","https://letshash.online:15024"],
-        ["nbxc.pool.gntl.co.uk","https://nbxc.pool.gntl.co.uk/api/pool/"],
-        ["nibl.ms-pool.net.ua","http://nibl.ms-pool.net.ua:8117"],
-        ["nbxc.pool-pay.com","http://nbxc.pool-pay.com:8767"],
-        ["pool.walemo.com","http://nbxc.bhdscan.com:32316"]
- ]
+	["superblockchain.con-ip.com\/nbxc","https://superblockchain.con-ip.com:8151"],
+        ["fastpool.xyz\/nbx","https://fastpool.xyz/api-nbxc"],
+	["nbxc.pool-pay.com","https://nbxc.pool-pay.com:8769"],
+	["letshash.it\/nbxc","https://letshash.online:15024"],
+	["nibl.ms-pool.net.ua","http://nibl.ms-pool.net.ua:8117"],
+        ["pool.walemo.com","https://nbxc.bhdscan.com:32316"]
+]
 };
 
 var networkStat2 = {
  "nbxc": [
+ 	 ["nbxc.pool.gntl.co.uk","https://nbxc.pool.gntl.co.uk/api"]
  ]
 };
 
